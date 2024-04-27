@@ -3,6 +3,14 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
+      aspectRatio: {
+        '5/4': '5 / 4',
+      },
+      transitionTimingFunction: {
+        'primary': 'cubic-bezier(.215,.61,.355,1)',
+        'secondary': 'cubic-bezier(.19,1,.22,1)',
+        'third': 'cubic-bezier(.16,1,.3,1)',
+      },
       fontSize: {
         'h1': ['var(--fs-h1)', {
           lineHeight: "var(--lh-h1)",
@@ -50,7 +58,7 @@ export default {
         secondary: ['Boska', 'serif'],
       },
       colors: {
-        'primary': {
+        primary: {
           '50': '#fbf3ff',
           '100': '#f5e3ff',
           '200': '#eccdff',
@@ -63,7 +71,7 @@ export default {
           '900': '#64079c',
           '950': '#440076',
         },
-        'secondary': {
+        secondary: {
           '50': '#f6f5f0',
           '100': '#e9e4d8',
           '200': '#d4cab4',
@@ -76,7 +84,7 @@ export default {
           '900': '#4f3c34',
           '950': '#2c201c',
         },
-        'dark': {
+        dark: {
           '50': '#f6f6f6',
           '100': '#e7e7e7',
           '200': '#d1d1d1',
@@ -89,7 +97,7 @@ export default {
           '900': '#3d3d3d',
           '950': '#141414',
         },
-        'extra': {
+        extra: {
           'white': "#ffffff",
           'black16': '#00000029',
           'white26': '#FFFFFF42',
