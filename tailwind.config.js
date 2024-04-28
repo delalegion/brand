@@ -3,6 +3,20 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
+      keyframes: {
+        rotateOne: {
+          '0%, 100%': { transform: 'rotate(360deg)' },
+          '50%': { transform: 'rotate(0deg)' },
+        }
+      },
+      animation: {
+        rotateOne: 'rotateOne 4s ease-in-out infinite',
+        rotateTwo: 'rotateOne 5s ease-in-out infinite'
+      },
+      outlineOffset: {
+        "-1": '-1px',
+        "-2": '-2px',
+      },
       aspectRatio: {
         '5/4': '5 / 4',
       },
