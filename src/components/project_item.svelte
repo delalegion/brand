@@ -1,13 +1,52 @@
 <script lang="ts">
+   import gsap from "gsap";
+   import { onMount } from "svelte";
+
    export let name: string;
-   export let pos: number;
+   export let pos: number = 1;
    export let scope: string[];
+   export let image: string;
+   
+   onMount(() => {
+      const imageContainer = document.querySelector('.project-image-' + pos)!;
+      const projectContainer = document.querySelector('.project-item-' + pos)!;
+
+      projectContainer.addEventListener("mouseenter", function () {
+         gsap.to(imageContainer, {
+            rotate: '2deg',
+            left: '60',
+            top: '-200px',
+            opacity: 1,
+            scale: 1,
+            duration: 0.3,
+            ease: 'expo.in',
+            zIndex: '100'
+         })
+      })
+      projectContainer.addEventListener("mouseleave", function () {
+         gsap.to(imageContainer, {
+            rotate: '12deg',
+            left: '96',
+            top: '-250px',
+            opacity: 0,
+            scale: 0.7,
+            duration: 0.3,
+            ease: 'expo.in',
+            zIndex: '100'
+         })
+      })
+
+   })
+
 </script>
 
-<div class="flex flex-column gap-11 border-t-2 border-dark-900 hover:border-dark-500 hover:border-t-2 duration-200 ease-primary pt-4 mb-8">
+<div class="flex flex-column gap-11 border-t-2 border-dark-900 hover:border-dark-500 hover:border-t-2 duration-200 ease-primary pt-4 mb-8 relative project-item-{pos}">
+   <div class="project-image-{pos} w-56 h-44 absolute top-[-250px] left-24 rotate-12 opacity-0 rounded-lg overflow-hidden pointer-events-none">
+      <img src={image} alt="Project image cover" class="top-0 left-0 right-0 bottom-0 w-100 h-100 bg-cover pointer-events-none" />
+   </div>
    <div class="flex flex-column sm:flex-row w-full justify-between flex-wrap gap-6">
       <div class="gap-6 flex flex-row">
-         <p class="font-primary text-dark-200 font-semibold text-h6">{pos}</p>
+         <p class="font-primary text-dark-200 font-semibold text-h6">0{pos}</p>
          <p class="font-primary text-dark-200 font-semibold text-h6">{name}</p>
       </div>
       <div class="gap-10 w-full sm:w-auto lg:gap-20 flex flex-row justify-between">

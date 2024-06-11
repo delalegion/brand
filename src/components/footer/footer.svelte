@@ -16,7 +16,7 @@
             kontakt@hubertkruk.pl</a>
             <div>
                <div class="flex flex-col md:flex-row gap-4 mt-10 md:mt-14">
-                  <ButtonOutline size="small">Formularz kontaktowy</ButtonOutline>
+                  <ButtonOutline size="small" link="/contact#contact">Formularz kontaktowy</ButtonOutline>
                   <ButtonPrimary size="small">Oferta</ButtonPrimary>
                </div>
             </div>

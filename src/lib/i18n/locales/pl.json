@@ -5,13 +5,8 @@
     "contact": "Kontakt",
     "project": "Zrealizujmy projekt"
   },
-   "page_title": "Witamy na stronie",
-   "sign_in": "Entrar",
-   "sign_up": "Registrar",
-   "new_acc": "Stwórz nowe konto",
-   "headerTitlePrimary": "Nowoczesne podejście do",
-   "headerTitleSecondary": "designu.",
-   "about": {
+  "headerTitle": "Nowoczesne podejście do <span class=\"font-secondary text-primary-500 italic\">designu.</span>",
+  "about": {
     "primary": "Pasjonat projektowania cyfrowego, specjalizujący się w tworzeniu <span class=\"font-secondary text-primary-500 italic\">stron</span> internetowych, projektowaniu nowoczesnych <span class=\"font-secondary text-primary-500 italic\">identyfikacji</span> wizualnych marek, komponowaniu materiałów drukowanych i tworzeniu oszałamiającej grafiki 3D.",
     "secondary": "Oferuję również wdrażanie stron internetowych za pomocą <span class=\"font-secondary text-secondary-400 italic\">nowoczesnych</span> rozwiązań frontendowych"
   }
