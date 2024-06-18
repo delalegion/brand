@@ -24,11 +24,31 @@
       <div class="col-span-4 sm:col-span-6 md:col-span-4 lg:col-span-2">
          <p class="text-p2 text-dark-400 font-semibold">Zaobserwuj mnie</p>
          <ul class="flex gap-6 flex-col mt-4">
-            <li><a href="#" class="font-semibold text-dark-200 text-h6 hover:text-dark-50">Behance</a></li>
-            <li><a href="#" class="font-semibold text-dark-200 text-h6 hover:text-dark-50">Dribbble</a></li>
-            <li><a href="#" class="font-semibold text-dark-200 text-h6 hover:text-dark-50">Instagram</a></li>
-            <li><a href="#" class="font-semibold text-dark-200 text-h6 hover:text-dark-50">Github</a></li>
-            <li><a href="#" class="font-semibold text-dark-200 text-h6 hover:text-dark-50">Linkedin</a></li>
+            <li class="group">
+               <a href="/contact" class="text-dark-200 rounded font-primary text-h6 font-semibold flex flex-row gap-0 group-hover:text-dark-50 ease-primary group overflow-hidden h-7">
+                  <div class="flex flex-col group-hover:translate-y-[-25px] transition duration-500 ease"><p>Behance</p><p>Behance</p></div>
+               </a>
+            </li>
+            <li class="group">
+               <a href="/contact" class="text-dark-200 rounded font-primary text-h6 font-semibold flex flex-row gap-0 group-hover:text-dark-50 ease-primary group overflow-hidden h-7">
+                  <div class="flex flex-col group-hover:translate-y-[-25px] transition duration-500 ease"><p>Dribbble</p><p>Dribbble</p></div>
+               </a>
+            </li>
+            <li class="group">
+               <a href="/contact" class="text-dark-200 rounded font-primary text-h6 font-semibold flex flex-row gap-0 group-hover:text-dark-50 ease-primary group overflow-hidden h-7">
+                  <div class="flex flex-col group-hover:translate-y-[-25px] transition duration-500 ease"><p>Instagram</p><p>Instagram</p></div>
+               </a>
+            </li>
+            <li class="group">
+               <a href="/contact" class="text-dark-200 rounded font-primary text-h6 font-semibold flex flex-row gap-0 group-hover:text-dark-50 ease-primary group overflow-hidden h-7">
+                  <div class="flex flex-col group-hover:translate-y-[-25px] transition duration-500 ease"><p>Github</p><p>Github</p></div>
+               </a>
+            </li>
+            <li class="group">
+               <a href="/contact" class="text-dark-200 rounded font-primary text-h6 font-semibold flex flex-row gap-0 group-hover:text-dark-50 ease-primary group overflow-hidden h-7">
+                  <div class="flex flex-col group-hover:translate-y-[-25px] transition duration-500 ease"><p>Linkedin</p><p>Linkedin</p></div>
+               </a>
+            </li>
          </ul>
       </div>
    </div>

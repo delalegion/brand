@@ -15,17 +15,18 @@
    import gsap from 'gsap';
    import { tweened } from 'svelte/motion';
    import { sineInOut } from 'svelte/easing';
+   import { modalStore } from '../stores/modal';
+   import ModalWithSkills from '../components/modal/modal.svelte';
+
    let canvas!: HTMLCanvasElement;
 
    let activeTab = 0;
    let height = tweened(0, { duration: 200, easing: sineInOut });
+
    function changeTab(tabId: number) {
       const tabList = document.querySelectorAll('.tab-content')!;
       const tabListTitleContainer = document.querySelectorAll('.tab-title')!;
-      // height.set(0).then(() => {
-      //    activeTab = tabId;
-      //    height.set(338);
-      // });
+
       if (tabId !== activeTab) {
          gsap.to(tabListTitleContainer[activeTab], {
             rotate: 0,
@@ -53,7 +54,7 @@
          opacity: 1,
          duration: 0.3,
          ease: 'expo.in',
-         zIndex: '100'
+         zIndex: '30'
       })
    }
 
@@ -73,7 +74,7 @@
          x: getScrollAmount,
          duration: 3,
       })
-
+      
       ScrollTrigger.create({
          trigger:".horizontal-scroll-container",
          start:"top 20%",
@@ -86,18 +87,8 @@
 
       height.set(338);
 
-      // gsap.to(".horizontal-scroll-content", {
-      // x: () => -(horizontalScrollWidth - window.innerWidth+100),
-      //    ease: "ease-in-out",
-      //    scrollTrigger: {
-      //    trigger: ".horizontal-scroll-container",
-      //    pin: true,
-      //    anticipatePin: 1,
-      //    pinSpacing: true,
-      //    scrub: 1,
-      //    end: () => "+=" + (horizontalScrollWidth - window.innerWidth)
-      //    }
-      // });
+      const links = document.querySelectorAll('a.link')!;
+      console.log(links);
    })
 
    
@@ -164,7 +155,7 @@
    </div>
 </section>
 
-<section id="projects_grid" class="grid grid-rows-2 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 place-content-center">
+<section id="projects" class="grid grid-rows-2 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 place-content-center">
    <div class="w-fit grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-14 lg:gap-18 lg:gap-26 xl:gap-32">
 
       <article id="project-1" class="flex flex-col px-4 max-w-[490px] xl:mr-12">
@@ -219,17 +210,17 @@
       <div class="px-4 sm:px-8 col-span-12 lg:col-span-10 xl:col-span-9">
 
          <!-- Project list item -->
-         <ProjectItem name="Redesign strony Indyjskie Meble" pos={1} scope={["UI DESIGN", "BRAND DESIGN"]} image={ProjectNo1}></ProjectItem>
+         <ProjectItem name="Redesign strony Indyjskie Meble" pos={1} scope={["UI DESIGN"]} image={ProjectNo1}></ProjectItem>
          <!-- Project list item -->
-         <ProjectItem name="Redesign strony Indyjskie Meble" pos={2} scope={["UI DESIGN", "BRAND DESIGN"]} image={ProjectNo1}></ProjectItem>
+         <ProjectItem name="Portal dla centrum rozrywki Hullo" pos={2} scope={["UI DESIGN"]} image={ProjectNo1}></ProjectItem>
          <!-- Project list item -->
-         <ProjectItem name="Redesign strony Indyjskie Meble" pos={3} scope={["UI DESIGN", "BRAND DESIGN"]} image={ProjectNo1}></ProjectItem>
+         <ProjectItem name="Brand oraz strona dla agencji 8BIT Turtle" pos={3} scope={["UI DESIGN", "BRAND DESIGN"]} image={ProjectNo1}></ProjectItem>
          <!-- Project list item -->
-         <ProjectItem name="Redesign strony Indyjskie Meble" pos={4} scope={["UI DESIGN", "BRAND DESIGN"]} image={ProjectNo1}></ProjectItem>
+         <ProjectItem name="Renewables Agency - Odnawialne źródła energii" pos={4} scope={["UI DESIGN"]} image={ProjectNo1}></ProjectItem>
          <!-- Project list item -->
-         <ProjectItem name="Redesign strony Indyjskie Meble" pos={5} scope={["UI DESIGN", "BRAND DESIGN"]} image={ProjectNo1}></ProjectItem>
+         <ProjectItem name="Adfoster - digital kampanie" pos={5} scope={["UI DESIGN", "BRAND DESIGN"]} image={ProjectNo1}></ProjectItem>
          <!-- Project list item -->
-         <ProjectItem name="Redesign strony Indyjskie Meble" pos={6} scope={["UI DESIGN", "BRAND DESIGN"]} image={ProjectNo1}></ProjectItem>
+         <ProjectItem name="Analychee - obsługa analityczna i doradcza" pos={6} scope={["UI DESIGN", "BRAND DESIGN"]} image={ProjectNo1}></ProjectItem>
 
       </div>
    </div>
@@ -257,7 +248,7 @@
                         <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Mimo mojego młodego wieku, posiadam znaczne doświadczenie w tworzeniu czytelnych, nowoczesnych i przystępnych dla przyszłych klientów rozwiązań, które spełnią oczekiwania nawet najbardziej wymagających klientów.</p>
                      </div>
                      <div>
-                        <ButtonOutline size="small">Szczegółowa oferta</ButtonOutline>
+                        <ButtonOutline size="small" on:click={() => modalStore.update(n => ({ currentPage: 2, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
                      </div>
                   </div>
                </div>
@@ -271,29 +262,31 @@
                   </h4>
                   <div class="flex flex-col gap-6 top-[-20px] opacity-0 h-0 tab-content">
                      <div class="flex flex-col gap-4 lg:gap-6">
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Projektowanie cyfrowe ma znaczący wpływ na dzisiejszą erę internetu, pomagając firmom budować swoje marki, angażować klientów i oferować innowacyjne rozwiązania graficzne. Chętnie Ci pomogę w projektowaniu nowoczesnych grafik, które przyczynią się do promocji Twojej marki w przestrzeni online, a także w tworzeniu interfejsów użytkownika (UI) dla stron internetowych i aplikacji mobilnych.</p>
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Mimo mojego młodego wieku, posiadam znaczne doświadczenie w tworzeniu czytelnych, nowoczesnych i przystępnych dla przyszłych klientów rozwiązań, które spełnią oczekiwania nawet najbardziej wymagających klientów.</p>
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Działam na styku sztuki graficznej i druku, dostarczając klientom profesjonalne rozwiązania od projektu logo po ulotki, broszury, opakowania i wiele innych materiałów promocyjnych. Jako product designer dążę do oferowania kompleksowych rozwiązań, które wspierają klientów w realizacji ich celów marketingowych i biznesowych poprzez wzmacnianie wizerunku i promocję.</p>
+
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Tworzę spójne i rozpoznawalne identyfikacje wizualne, które wyróżniają się na tle konkurencji oraz nadają markom unikalny charakter. To istotny element budowania marki, który sprawia, że firma zyskuje własną tożsamość i jest zapamiętywana przez klientów.</p>
                      </div>
                      <div>
-                        <ButtonOutline size="small">Szczegółowa oferta</ButtonOutline>
+                        <ButtonOutline size="small" on:click={() => modalStore.update(n => ({ currentPage: 0, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
                      </div>
                   </div>
                </div>
             </div>
             <div class="border-dark-800 pt-6 border-t-2">
                <div class="flex flex-col gap-6">
-                  <h4 class="font-primary text-dark-200 font-semibold text-h5 md:text-h4 flex w-full justify-between" on:click={() => changeTab(2)}>Brand + Print
+                  <h4 class="font-primary text-dark-200 font-semibold text-h5 md:text-h4 flex w-full justify-between" on:click={() => changeTab(2)}>Development
                      <svg class="tab-title" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13 13.4927L3.75378 13.4927C3.33978 13.4927 3.00378 13.8287 3.00378 14.2427C3.00378 14.6567 3.33978 14.9927 3.75378 14.9927L13 14.9927L13 24.2388C13 24.6528 13.336 24.9888 13.75 24.9888C14.164 24.9888 14.5 24.6528 14.5 24.2388L14.5 14.9927L23.7524 14.9927C24.1664 14.9927 24.5024 14.6567 24.5024 14.2427C24.5024 13.8287 24.1664 13.4927 23.7524 13.4927L14.5 13.4927L14.5031 4.24288C14.5031 3.82888 14.1671 3.49288 13.7531 3.49288C13.3391 3.49288 13.0031 3.82888 13.0031 4.24288L13 13.4927Z" fill="#D1D1D1"/>
                      </svg>                     
                   </h4>
                   <div class="flex flex-col gap-6 top-[-20px] opacity-0 h-0 tab-content">
                      <div class="flex flex-col gap-4 lg:gap-6">
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Projektowanie cyfrowe ma znaczący wpływ na dzisiejszą erę internetu, pomagając firmom budować swoje marki, angażować klientów i oferować innowacyjne rozwiązania graficzne. Chętnie Ci pomogę w projektowaniu nowoczesnych grafik, które przyczynią się do promocji Twojej marki w przestrzeni online, a także w tworzeniu interfejsów użytkownika (UI) dla stron internetowych i aplikacji mobilnych.</p>
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Mimo mojego młodego wieku, posiadam znaczne doświadczenie w tworzeniu czytelnych, nowoczesnych i przystępnych dla przyszłych klientów rozwiązań, które spełnią oczekiwania nawet najbardziej wymagających klientów.</p>
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Poza moją główną profesją, która jest digital design, mam również pasję i umiejętności w dziedzinie programowania webowego. Programowanie to dla mnie nie tylko praca, ale również sposób wyrażania kreatywności i tworzenia czegoś wartościowego.</p>
+                        
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Dzięki nowoczesnym technologiom jestem w stanie tworzyć strony internetowe od zera, począwszy od projektu graficznego aż po pełne, działające rozwiązania online. Moje umiejętności pozwalają mi dostosowywać projekty do indywidualnych potrzeb klientów, tworząc responsywne i atrakcyjne witryny, które zapewniają użytkownikom wyjątkowe doświadczenia.</p>
                      </div>
                      <div>
-                        <ButtonOutline size="small">Szczegółowa oferta</ButtonOutline>
+                        <ButtonOutline size="small" on:click={() => modalStore.update(n => ({ currentPage: 1, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
                      </div>
                   </div>
                </div>
@@ -530,7 +523,7 @@
                         <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Mimo mojego młodego wieku, posiadam znaczne doświadczenie w tworzeniu czytelnych, nowoczesnych i przystępnych dla przyszłych klientów rozwiązań, które spełnią oczekiwania nawet najbardziej wymagających klientów.</p>
                      </div>
                      <div>
-                        <ButtonOutline size="medium">Szczegółowa oferta</ButtonOutline>
+                        <ButtonOutline size="medium" on:click={() => modalStore.update(n => ({ currentPage: 2, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
                      </div>
                   </div>
                </div>
@@ -758,7 +751,7 @@
                         <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Tworzę spójne i rozpoznawalne identyfikacje wizualne, które wyróżniają się na tle konkurencji oraz nadają markom unikalny charakter. To istotny element budowania marki, który sprawia, że firma zyskuje własną tożsamość i jest zapamiętywana przez klientów.</p>
                      </div>
                      <div>
-                        <ButtonOutline size="medium">Szczegółowa oferta</ButtonOutline>
+                        <ButtonOutline size="medium" on:click={() => modalStore.update(n => ({ currentPage: 0, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
                      </div>
                   </div>
                </div>
@@ -994,7 +987,7 @@
                         <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Dzięki nowoczesnym technologiom jestem w stanie tworzyć strony internetowe od zera, począwszy od projektu graficznego aż po pełne, działające rozwiązania online. Moje umiejętności pozwalają mi dostosowywać projekty do indywidualnych potrzeb klientów, tworząc responsywne i atrakcyjne witryny, które zapewniają użytkownikom wyjątkowe doświadczenia.</p>
                      </div>
                      <div>
-                        <ButtonOutline size="medium">Szczegółowa oferta</ButtonOutline>
+                        <ButtonOutline size="medium" on:click={() => modalStore.update(n => ({ currentPage: 1, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
                      </div>
                   </div>
                </div>
@@ -1006,4 +999,8 @@
       
    </section>
 </section>
+
 <Footer />
+
+<!-- Modal with skills components -->
+<ModalWithSkills />

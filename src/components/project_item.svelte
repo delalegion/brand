@@ -15,11 +15,10 @@
          gsap.to(imageContainer, {
             rotate: '2deg',
             left: '60',
-            top: '-200px',
+            top: '-260px',
             opacity: 1,
-            scale: 1,
             duration: 0.3,
-            ease: 'expo.in',
+            ease: 'power2.out',
             zIndex: '100'
          })
       })
@@ -27,11 +26,10 @@
          gsap.to(imageContainer, {
             rotate: '12deg',
             left: '96',
-            top: '-250px',
+            top: '-300px',
             opacity: 0,
-            scale: 0.7,
             duration: 0.3,
-            ease: 'expo.in',
+            ease: 'power2.out',
             zIndex: '100'
          })
       })
@@ -41,8 +39,8 @@
 </script>
 
 <div class="flex flex-column gap-11 border-t-2 border-dark-900 hover:border-dark-500 hover:border-t-2 duration-200 ease-primary pt-4 mb-8 relative project-item-{pos}">
-   <div class="project-image-{pos} w-56 h-44 absolute top-[-250px] left-24 rotate-12 opacity-0 rounded-lg overflow-hidden pointer-events-none">
-      <img src={image} alt="Project image cover" class="top-0 left-0 right-0 bottom-0 w-100 h-100 bg-cover pointer-events-none" />
+   <div class="project-image-{pos} w-56 lg:w-72 h-48 lg:h-60 absolute top-[-260px] left-24 rotate-12 opacity-0 rounded-xl overflow-hidden pointer-events-none">
+      <img src={image} alt="Project image cover" class="top-0 left-0 right-0 bottom-0 w-full h-full bg-cover pointer-events-none" />
    </div>
    <div class="flex flex-column sm:flex-row w-full justify-between flex-wrap gap-6">
       <div class="gap-6 flex flex-row">

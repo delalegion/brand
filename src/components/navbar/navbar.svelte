@@ -34,17 +34,23 @@
          </svg>
       </button>
       <div class="w-full md:w-auto" id="navbar-default">
-         <ul id="menu-desktop" class="z-40 hidden relative md:flex flex-col p-4 gap-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-4 xl:space-x-8 md:mt-0 items-start md:justify-center md:items-center">
-            <li class="group">
-               <a href="/contact" class="block py-2 px-4 xl:px-7 text-dark-200 rounded font-primary text-h5 md:text-p1 font-medium flex flex-row gap-0 group-hover:text-dark-100 transition-colors duration-200 ease-primary"><span class="text-caption text-dark-400 mr-2 mt-0.5 font-semibold">01</span> Oferta</a>
+         <ul id="menu-desktop" class="z-40 hidden py-2 relative md:flex flex-col p-4 gap-4 mt-4 rounded-lg md:flex-row md:space-x-4 xl:space-x-8 md:mt-0 items-start md:justify-center md:items-center">
+            <li>
+               <a href="#projects" class="link block px-4 xl:px-7 text-dark-200 rounded font-primary text-h5 md:text-p1 font-medium flex flex-row gap-0 group-hover:text-dark-100 ease-primary group overflow-hidden h-6">
+                  <span class="text-caption text-dark-400 mr-2 transition duration-300 ease group-hover:text-dark-200 mt-0.5 font-semibold">01</span> <div class="flex flex-col group-hover:translate-y-[-24px] transition duration-500 ease"><p>Portfolio</p><p>Portfolio</p></div>
+               </a>
             </li>
             <span class="font-regular text-[14px] text-dark-400 flex items-center select-none hidden md:flex">//</span>
-            <li class="group">
-               <a href="/#projects_grid" class="block py-2 px-4 xl:px-7 text-dark-200 rounded font-primary text-h5 md:text-p1 font-medium flex flex-row gap-0 group-hover:text-dark-100 transition-colors duration-200 ease-primary"><span class="text-caption text-dark-400 mr-2 mt-0.5 font-semibold">02</span> Portfolio</a>
+            <li>
+               <a href="#offer" class="link block px-4 xl:px-7 text-dark-200 rounded font-primary text-h5 md:text-p1 font-medium flex flex-row gap-0 group-hover:text-dark-100 ease-primary group overflow-hidden h-6">
+                  <span class="text-caption text-dark-400 mr-2 transition duration-300 ease group-hover:text-dark-200 mt-0.5 font-semibold">02</span> <div class="flex flex-col group-hover:translate-y-[-24px] transition duration-500 ease"><p>Oferta</p><p>Oferta</p></div>
+               </a>
             </li>
             <span class="font-regular text-[14px] text-dark-400 flex items-center select-none hidden md:flex">//</span>
-            <li class="group">
-               <a href="/contact" class="block py-2 px-4 xl:px-7 text-dark-200 rounded font-primary text-h5 md:text-p1 font-medium flex flex-row gap-0 group-hover:text-dark-100 transition-colors duration-200 ease-primary"><span class="text-caption text-dark-400 mr-2 mt-0.5 font-semibold">03</span> Kontakt</a>
+            <li>
+               <a href="/contact" class="link block px-4 xl:px-7 text-dark-200 rounded font-primary text-h5 md:text-p1 font-medium flex flex-row gap-0 group-hover:text-dark-100 ease-primary group overflow-hidden h-6">
+                  <span class="text-caption text-dark-400 mr-2 transition duration-300 ease group-hover:text-dark-200 mt-0.5 font-semibold">03</span> <div class="flex flex-col group-hover:translate-y-[-24px] transition duration-500 ease"><p>Kontakt</p><p>Kontakt</p></div>
+               </a>
             </li>
          </ul>
 
@@ -68,12 +74,16 @@
          <div id="menu-bg" class="bg-dark-900 absolute h-0 top-0 left-0 right-0 z-10"></div>
       </div>
       <div class="hidden w-full lg:block md:w-auto" id="navbar-default">
-         <ul class="flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row space-x-2 md:space-x-4 xl:space-x-8 md:mt-0 justify-center items-center">
+         <ul class="flex flex-col py-2 mt-4 rounded-lg md:flex-row space-x-2 md:space-x-4 xl:space-x-8 md:mt-0 justify-center items-center">
             <li>
-               <a href="#" class="block py-2 px-4 xl:px-7 text-dark-200 rounded font-primary text-p1 font-medium hover:text-dark-100 transition-colors duration-200 ease-primary text-dark-200">PL</a>
+               <a href="/contact" class="link block px-4 xl:px-7 text-dark-200 rounded font-primary text-h5 md:text-p1 font-medium flex flex-row gap-0 group-hover:text-dark-100 ease-primary group overflow-hidden h-6">
+               <div class="flex flex-col group-hover:translate-y-[-24px] transition duration-500 ease"><p>PL</p><p>PL</p></div>
+               </a>
             </li>
             <li>
-               <a href="#" class="block py-2 px-4 xl:px-7 text-dark-200 rounded font-primary text-p1 font-medium hover:text-dark-100 transition-colors duration-200 ease-primary text-dark-400">EN</a>
+               <a href="/contact" class="link block px-4 xl:px-7 text-dark-400 rounded font-primary text-h5 md:text-p1 font-medium flex flex-row gap-0 group-hover:text-dark-100 ease-primary group overflow-hidden h-6">
+                  <div class="flex flex-col group-hover:translate-y-[-24px] transition duration-500 ease"><p>EN</p><p>EN</p></div>
+               </a>
             </li>
          </ul>
       </div>
