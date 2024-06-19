@@ -86,9 +86,6 @@
       })
 
       height.set(338);
-
-      const links = document.querySelectorAll('a.link')!;
-      console.log(links);
    })
 
    
