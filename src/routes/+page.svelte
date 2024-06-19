@@ -23,41 +23,6 @@
    let activeTab = 0;
    let height = tweened(0, { duration: 200, easing: sineInOut });
 
-   function changeTab(tabId: number) {
-      const tabList = document.querySelectorAll('.tab-content')!;
-      const tabListTitleContainer = document.querySelectorAll('.tab-title')!;
-
-      if (tabId !== activeTab) {
-         gsap.to(tabListTitleContainer[activeTab], {
-            rotate: 0,
-            ease: 'expo.out'
-         })
-         gsap.to(tabList[activeTab], {
-            y: '-20',
-            height: 0,
-            opacity: 0,
-            duration: 0.3,
-            ease: 'expo.out',
-            zIndex: '-1'
-         })
-      }
-
-      activeTab = tabId;
-
-      gsap.to(tabListTitleContainer[activeTab], {
-         rotate: 45,
-         ease: 'expo.in'
-      })
-      gsap.to(tabList[tabId], {
-         y: '0',
-         height: 'auto',
-         opacity: 1,
-         duration: 0.3,
-         ease: 'expo.in',
-         zIndex: '30'
-      })
-   }
-
    onMount(() => {
       gsap.registerPlugin(ScrollTrigger);
       const spline = new Application(canvas);
@@ -86,6 +51,8 @@
       })
 
       height.set(338);
+
+      
    })
 
    
@@ -227,69 +194,6 @@
       <div class="max-w-screen-2xl mx-auto">
          <div class="border border-dark-900 w-full"></div>
          <h5 class="font-primary text-dark-200 font-semibold text-h5 mt-10">Moje mozliwości</h5>
-      </div>
-
-      <div class="flex md:hidden flex-col mt-10 lg:mt-20 flex-nowrap py-1 mb-12">
-         <div class="flex flex-col w-full gap-10 mt-8 md:mt-0">
-      
-            <div class="border-dark-800 pt-6 border-t-2">
-               <div class="flex flex-col gap-6">
-                  <h4 class="font-primary text-dark-200 font-semibold text-h5 md:text-h4 flex w-full justify-between" on:click={() => changeTab(0)}>Digital Design
-                     <svg class="tab-title" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13 13.4927L3.75378 13.4927C3.33978 13.4927 3.00378 13.8287 3.00378 14.2427C3.00378 14.6567 3.33978 14.9927 3.75378 14.9927L13 14.9927L13 24.2388C13 24.6528 13.336 24.9888 13.75 24.9888C14.164 24.9888 14.5 24.6528 14.5 24.2388L14.5 14.9927L23.7524 14.9927C24.1664 14.9927 24.5024 14.6567 24.5024 14.2427C24.5024 13.8287 24.1664 13.4927 23.7524 13.4927L14.5 13.4927L14.5031 4.24288C14.5031 3.82888 14.1671 3.49288 13.7531 3.49288C13.3391 3.49288 13.0031 3.82888 13.0031 4.24288L13 13.4927Z" fill="#D1D1D1"/>
-                     </svg>                     
-                  </h4>
-                  <div class="flex flex-col gap-6 tab-content">
-                     <div class="flex flex-col gap-4 lg:gap-6">
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Projektowanie cyfrowe ma znaczący wpływ na dzisiejszą erę internetu, pomagając firmom budować swoje marki, angażować klientów i oferować innowacyjne rozwiązania graficzne. Chętnie Ci pomogę w projektowaniu nowoczesnych grafik, które przyczynią się do promocji Twojej marki w przestrzeni online, a także w tworzeniu interfejsów użytkownika (UI) dla stron internetowych i aplikacji mobilnych.</p>
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Mimo mojego młodego wieku, posiadam znaczne doświadczenie w tworzeniu czytelnych, nowoczesnych i przystępnych dla przyszłych klientów rozwiązań, które spełnią oczekiwania nawet najbardziej wymagających klientów.</p>
-                     </div>
-                     <div>
-                        <ButtonOutline size="small" on:click={() => modalStore.update(n => ({ currentPage: 2, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="border-dark-800 pt-6 border-t-2">
-               <div class="flex flex-col gap-6">
-                  <h4 class="font-primary text-dark-200 font-semibold text-h5 md:text-h4 flex w-full justify-between" on:click={() => changeTab(1)}>Brand + Print
-                     <svg class="tab-title" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13 13.4927L3.75378 13.4927C3.33978 13.4927 3.00378 13.8287 3.00378 14.2427C3.00378 14.6567 3.33978 14.9927 3.75378 14.9927L13 14.9927L13 24.2388C13 24.6528 13.336 24.9888 13.75 24.9888C14.164 24.9888 14.5 24.6528 14.5 24.2388L14.5 14.9927L23.7524 14.9927C24.1664 14.9927 24.5024 14.6567 24.5024 14.2427C24.5024 13.8287 24.1664 13.4927 23.7524 13.4927L14.5 13.4927L14.5031 4.24288C14.5031 3.82888 14.1671 3.49288 13.7531 3.49288C13.3391 3.49288 13.0031 3.82888 13.0031 4.24288L13 13.4927Z" fill="#D1D1D1"/>
-                     </svg>                     
-                  </h4>
-                  <div class="flex flex-col gap-6 top-[-20px] opacity-0 h-0 tab-content">
-                     <div class="flex flex-col gap-4 lg:gap-6">
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Działam na styku sztuki graficznej i druku, dostarczając klientom profesjonalne rozwiązania od projektu logo po ulotki, broszury, opakowania i wiele innych materiałów promocyjnych. Jako product designer dążę do oferowania kompleksowych rozwiązań, które wspierają klientów w realizacji ich celów marketingowych i biznesowych poprzez wzmacnianie wizerunku i promocję.</p>
-
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Tworzę spójne i rozpoznawalne identyfikacje wizualne, które wyróżniają się na tle konkurencji oraz nadają markom unikalny charakter. To istotny element budowania marki, który sprawia, że firma zyskuje własną tożsamość i jest zapamiętywana przez klientów.</p>
-                     </div>
-                     <div>
-                        <ButtonOutline size="small" on:click={() => modalStore.update(n => ({ currentPage: 0, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="border-dark-800 pt-6 border-t-2">
-               <div class="flex flex-col gap-6">
-                  <h4 class="font-primary text-dark-200 font-semibold text-h5 md:text-h4 flex w-full justify-between" on:click={() => changeTab(2)}>Development
-                     <svg class="tab-title" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13 13.4927L3.75378 13.4927C3.33978 13.4927 3.00378 13.8287 3.00378 14.2427C3.00378 14.6567 3.33978 14.9927 3.75378 14.9927L13 14.9927L13 24.2388C13 24.6528 13.336 24.9888 13.75 24.9888C14.164 24.9888 14.5 24.6528 14.5 24.2388L14.5 14.9927L23.7524 14.9927C24.1664 14.9927 24.5024 14.6567 24.5024 14.2427C24.5024 13.8287 24.1664 13.4927 23.7524 13.4927L14.5 13.4927L14.5031 4.24288C14.5031 3.82888 14.1671 3.49288 13.7531 3.49288C13.3391 3.49288 13.0031 3.82888 13.0031 4.24288L13 13.4927Z" fill="#D1D1D1"/>
-                     </svg>                     
-                  </h4>
-                  <div class="flex flex-col gap-6 top-[-20px] opacity-0 h-0 tab-content">
-                     <div class="flex flex-col gap-4 lg:gap-6">
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Poza moją główną profesją, która jest digital design, mam również pasję i umiejętności w dziedzinie programowania webowego. Programowanie to dla mnie nie tylko praca, ale również sposób wyrażania kreatywności i tworzenia czegoś wartościowego.</p>
-
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Dzięki nowoczesnym technologiom jestem w stanie tworzyć strony internetowe od zera, począwszy od projektu graficznego aż po pełne, działające rozwiązania online. Moje umiejętności pozwalają mi dostosowywać projekty do indywidualnych potrzeb klientów, tworząc responsywne i atrakcyjne witryny, które zapewniają użytkownikom wyjątkowe doświadczenia.</p>
-                     </div>
-                     <div>
-                        <ButtonOutline size="small" on:click={() => modalStore.update(n => ({ currentPage: 1, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
-                     </div>
-                  </div>
-               </div>
-            </div>
-      
-         </div>
       </div>
 
       <div class="hidden md:flex flex-col mt-10 lg:mt-20 flex-nowrap horizontal-scroll-container gap-8">

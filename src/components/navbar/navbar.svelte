@@ -6,9 +6,10 @@
    import { onMount } from 'svelte';
    import gsap from 'gsap';
 
-   let tl = gsap.timeline({ paused: true });
+   let tl;
 
    onMount(() => {
+      tl = gsap.timeline({ paused: true });
       tl.to("#menu-bg", { height: 400, duration: 0.2 }).to("#menu-item", {duration: 0.2, opacity: 1, stagger: 0.1, top: 0}).reverse();
    })
 
