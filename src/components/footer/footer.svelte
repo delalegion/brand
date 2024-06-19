@@ -1,6 +1,7 @@
 <script lang="ts">
    import ButtonPrimary from '../buttons/primary.svelte';
    import ButtonOutline from '../buttons/outline.svelte';
+   import { modalStore } from '../../stores/modal';
 </script>
 
 <footer id="footer" class="max-w-screen-2xl py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 place-content-center px-4 sm:px-8 mx-auto">
@@ -17,7 +18,7 @@
             <div>
                <div class="flex flex-col md:flex-row gap-4 mt-10 md:mt-14">
                   <ButtonOutline size="small" link="/contact#contact">Formularz kontaktowy</ButtonOutline>
-                  <ButtonPrimary size="small">Oferta</ButtonPrimary>
+                  <ButtonPrimary size="small" on:click={() => modalStore.update(n => ({ currentPage: 2, isOpen: true }))}>Oferta</ButtonPrimary>
                </div>
             </div>
       </div>

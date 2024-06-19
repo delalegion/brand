@@ -44,7 +44,7 @@
                <div class="inline-flex items-center -mt-4 -ml-2 inp">
                   <label class="relative flex items-center p-2 rounded-full cursor-pointer" for="budget-first">
                     <input type="radio" name="budget-type" checked
-                      class="before:content[''] peer relative h-6 w-6 cursor-pointer appearance-none rounded-full border-2 border-dark-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-secondary-400 checked:bg-primary checked:before:bg-dark-900 hover:before:opacity-10"
+                      class="before:content[''] peer relative h-6 w-6 cursor-pointer appearance-none rounded-full border-2 border-dark-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-secondary-400 checked:bg-primary checked:before:bg-dark-900 hover:before:opacity-10 "
                       id="budget-first" value="< 5 tysięcy" />
                     <span
                       class="absolute text-secondary-400 flex items-center justify-center transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
@@ -87,7 +87,7 @@
 						<input placeholder="Temat, powód kontaktu *" name="topic"
 						  class="peer h-full w-full border-2 border-dark-700 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-blue-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-blue-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
 						<label
-						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-500">
+						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-50 placeholder-shown:text-dark-50">
 						  Temat, powód kontaktu *
 						</label>
 					 </div>
@@ -95,7 +95,7 @@
 						<textarea placeholder="Treść wiadomości *" name="message"
 						  class="peer h-full w-full border-2 min-h-[180px] border-dark-700 rounded-md bg-transparent px-3 md:px-6 pt-7 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-blue-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-blue-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100"></textarea>
 						<label
-						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-500">
+						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-50 placeholder:text-dark-50 placeholder-shown:text-dark-50">
 						  Treść wiadomości *
 						</label>
 					 </div>
@@ -106,7 +106,7 @@
 						<input placeholder="Email *" name="email" type="email"
 						  class="peer h-full w-full border-2 border-dark-700 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-blue-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-blue-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
 						<label
-						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-500">
+						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-50 placeholder-shown:text-dark-50">
 						  Email *
 						</label>
                </div>
@@ -114,7 +114,7 @@
 						<input placeholder="Imię / Firma *" name="name" type="text"
 						  class="peer h-full w-full border-2 border-dark-700 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-blue-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-blue-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
 						<label
-						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-500">
+						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-50 placeholder-shown:text-dark-50">
 						  Imię / Firma *
 						</label>
                </div>
@@ -122,14 +122,14 @@
 						<input placeholder="Numer telefonu (opcjonalnie)" name="phone" type="phone"
 						  class="peer h-full w-full border-2 border-dark-700 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-blue-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-blue-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
 						<label
-						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-500">
+						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-50 placeholder-shown:text-dark-50">
 						  Numer telefonu (opcjonalnie)
 						</label>
                </div>
                <div class="inline-flex items-center mt-2 mb-4 -ml-2 inp">
                   <label class="relative flex items-center p-2 rounded-full cursor-pointer" for="terms">
                     <input type="checkbox" name="terms"
-                      class="before:content[''] peer relative h-6 w-6 cursor-pointer appearance-none rounded-lg border-2 border-dark-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-secondary-400 checked:bg-primary checked:before:bg-dark-900 hover:before:opacity-10"
+                      class="before:content[''] peer relative h-6 w-6 cursor-pointer appearance-none rounded-lg border-2 border-dark-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-secondary-400 checked:bg-primary checked:before:bg-dark-900 hover:before:opacity-10 placeholder-shown:text-dark-50"
                       id="terms" />
                     <span
                       class="absolute text-secondary-400 flex items-center justify-center transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
@@ -141,7 +141,7 @@
                     </svg>
                     </span>
                   </label>
-                  <label class="mt-px text-dark-200 text-p2 cursor-pointer select-none font-primary font-medium" for="terms">Akceptuję politykę prywatności i wyrażam zgodę na przetwarzanie danych osobowych</label>
+                  <label class="mt-px text-dark-200 text-p2 cursor-pointer select-none font-primary font-medium placeholder-shown:text-dark-50" for="terms">Akceptuję politykę prywatności i wyrażam zgodę na przetwarzanie danych osobowych</label>
                </div>
                <div class="flex flex-row gap-10">
                   <Button size="medium" submit="true">Wyślij zapytanie</Button>

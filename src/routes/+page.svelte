@@ -282,7 +282,7 @@
                   <div class="flex flex-col gap-6 top-[-20px] opacity-0 h-0 tab-content">
                      <div class="flex flex-col gap-4 lg:gap-6">
                         <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Poza moją główną profesją, która jest digital design, mam również pasję i umiejętności w dziedzinie programowania webowego. Programowanie to dla mnie nie tylko praca, ale również sposób wyrażania kreatywności i tworzenia czegoś wartościowego.</p>
-                        
+
                         <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Dzięki nowoczesnym technologiom jestem w stanie tworzyć strony internetowe od zera, począwszy od projektu graficznego aż po pełne, działające rozwiązania online. Moje umiejętności pozwalają mi dostosowywać projekty do indywidualnych potrzeb klientów, tworząc responsywne i atrakcyjne witryny, które zapewniają użytkownikom wyjątkowe doświadczenia.</p>
                      </div>
                      <div>

@@ -27,7 +27,9 @@
 		"@splinetool/react-spline": "^2.2.6",
 		"@splinetool/runtime": "^0.9.484",
 		"gsap": "^3.12.5",
+		"lil-gui": "^0.19.2",
 		"resend": "^3.2.0",
-		"svelte-i18n": "^4.0.0"
+		"svelte-i18n": "^4.0.0",
+		"three": "^0.165.0"
 	}
 }
