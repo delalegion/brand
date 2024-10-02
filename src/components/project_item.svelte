@@ -38,9 +38,18 @@
 
 </script>
 
-<div class="flex flex-column gap-11 border-t-2 border-dark-900 hover:border-dark-500 hover:border-t-2 duration-200 ease-primary pt-4 mb-8 relative project-item-{pos}">
+<style>
+   @media (max-width: 768px) {
+      .project-image-mobile {
+         overflow: hidden;
+         opacity: 0;
+      }
+   }
+</style>
+
+<div class="project-list-item flex flex-column opacity-0 translate-y-14 gap-11 border-t-2 border-dark-900 hover:border-dark-500 hover:border-t-2 duration-200 ease-primary pt-4 mb-8 relative project-item-{pos}">
    <div class="project-image-{pos} w-56 lg:w-72 h-48 lg:h-60 absolute top-[-260px] left-24 rotate-12 opacity-0 rounded-xl overflow-hidden pointer-events-none">
-      <img src={image} alt="Project image cover" class="top-0 left-0 right-0 bottom-0 w-full h-full bg-cover pointer-events-none" />
+      <img src={image} alt="Project image cover" class="project-image-mobile top-0 left-0 right-0 bottom-0 w-full h-full bg-cover pointer-events-none" />
    </div>
    <div class="flex flex-column sm:flex-row w-full justify-between flex-wrap gap-6">
       <div class="gap-6 flex flex-row">

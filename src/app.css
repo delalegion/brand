@@ -34,4 +34,7 @@
    body {
       font-family: 'Silka', sans-serif;
    }
+   html { 
+      scroll-behavior: smooth; 
+   }
 }

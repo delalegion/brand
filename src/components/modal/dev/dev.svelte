@@ -49,7 +49,7 @@
 
 <p class="text-dark-200 font-primary font-medium text-p mt-4">Zapraszam do kontaktu w celu wyceny projektu.</p>
 
-<div class="flex flex-row gap-8 py-10">
+<div class="flex flex-row gap-8 pt-10">
 
    <a class="flex flex-col gap-2 text-dark-400 hover:text-dark-200 transition-colors duration-200 hover:translate-y-0.5 hover:cursor-pointer" on:click={() => modalStore.update(n => ({ currentPage: 0, isOpen: true }))}>
       <svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">

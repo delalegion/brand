@@ -18,6 +18,6 @@
 <!-- Navbar with menu -->
 <Navbar />
 
-<main data-barba="wrapper">
+<main>
     <slot />
 </main>

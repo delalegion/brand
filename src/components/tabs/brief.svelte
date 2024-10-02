@@ -85,7 +85,7 @@
             <div class="flex py-10 gap-4 flex-col">
                <div class="relative h-16 w-full min-w-[200px] inp">
 						<input placeholder="Temat, powód kontaktu *" name="topic"
-						  class="peer h-full w-full border-2 border-dark-700 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-blue-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-blue-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
+						  class="peer h-full w-full border-2 border-dark-700 placeholder:text-dark-400 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
 						<label
 						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-50 placeholder-shown:text-dark-50">
 						  Temat, powód kontaktu *
@@ -93,7 +93,7 @@
 					 </div>
                 <div class="relative h-[180px] w-full min-w-[200px] inp">
 						<textarea placeholder="Treść wiadomości *" name="message"
-						  class="peer h-full w-full border-2 min-h-[180px] border-dark-700 rounded-md bg-transparent px-3 md:px-6 pt-7 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-blue-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-blue-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100"></textarea>
+						  class="peer h-full w-full border-2 min-h-[180px] placeholder:text-dark-400 border-dark-700 rounded-md bg-transparent px-3 md:px-6 pt-7 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100"></textarea>
 						<label
 						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-50 placeholder:text-dark-50 placeholder-shown:text-dark-50">
 						  Treść wiadomości *
@@ -104,7 +104,7 @@
             <div class="flex py-2 gap-4 flex-col">
                <div class="relative h-16 w-full min-w-[200px] inp">
 						<input placeholder="Email *" name="email" type="email"
-						  class="peer h-full w-full border-2 border-dark-700 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-blue-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-blue-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
+						  class="peer h-full w-full border-2 border-dark-700 placeholder:text-dark-400 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
 						<label
 						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-50 placeholder-shown:text-dark-50">
 						  Email *
@@ -112,7 +112,7 @@
                </div>
                <div class="relative h-16 w-full min-w-[200px] inp">
 						<input placeholder="Imię / Firma *" name="name" type="text"
-						  class="peer h-full w-full border-2 border-dark-700 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-blue-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-blue-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
+						  class="peer h-full w-full border-2 border-dark-700 placeholder:text-dark-400 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-dark-500 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
 						<label
 						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-50 placeholder-shown:text-dark-50">
 						  Imię / Firma *
@@ -120,7 +120,7 @@
                </div>
                <div class="relative h-16 w-full min-w-[200px] inp">
 						<input placeholder="Numer telefonu (opcjonalnie)" name="phone" type="phone"
-						  class="peer h-full w-full border-2 border-dark-700 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-blue-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-blue-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
+						  class="peer h-full w-full border-2 border-dark-700 placeholder:text-dark-400 rounded-md bg-transparent px-3 md:px-6 pt-5 pb-0 font-primary font-semibold text-p1 text-dark-200 outline outline-0 transition-all placeholder-shown:border-dark-150 focus:border-dark-500 focus:outline-0 disabled:border-0 disabled:bg-dark-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
 						<label
 						  class="after:content[''] pointer-events-none absolute pl-3 md:pl-6 top-3 flex select-none !overflow-visible truncate text-[11px] font-semibold leading-tight text-dark-400 transition-all after:absolute after:-bottom-4 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-dark-400 after:transition-transform after:duration-300 peer-placeholder-shown:text-[16px] peer-focus:top-2 peer-placeholder-shown:text-dark-500 peer-focus:text-[11px] peer-disabled:peer-placeholder-shown:text-dark-50 placeholder-shown:text-dark-50">
 						  Numer telefonu (opcjonalnie)

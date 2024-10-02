@@ -4,6 +4,7 @@
 
    //Components
    import ButtonOutline from '../components/buttons/outline.svelte';
+   import ButtonPrimary from '../components/buttons/primary.svelte';
    import ProjectItem from '../components/project_item.svelte';
    import Footer from '../components/footer/footer.svelte';
    import Navbar from '../components/navbar/navbar.svelte'; 
@@ -23,10 +24,45 @@
    let activeTab = 0;
    let height = tweened(0, { duration: 200, easing: sineInOut });
 
+   function changeTab(tabId: number) {
+      const tabList = document.querySelectorAll('.tab-content')!;
+      const tabListTitleContainer = document.querySelectorAll('.tab-title')!;
+
+      if (tabId !== activeTab) {
+         gsap.to(tabListTitleContainer[activeTab], {
+            rotate: 0,
+            ease: 'expo.out'
+         })
+         gsap.to(tabList[activeTab], {
+            y: '-20',
+            height: 0,
+            opacity: 0,
+            duration: 0.3,
+            ease: 'expo.out',
+            zIndex: '-1'
+         })
+      }
+
+      activeTab = tabId;
+
+      gsap.to(tabListTitleContainer[activeTab], {
+         rotate: 45,
+         ease: 'expo.in'
+      })
+      gsap.to(tabList[tabId], {
+         y: '0',
+         height: 'auto',
+         opacity: 1,
+         duration: 0.3,
+         ease: 'expo.in',
+         zIndex: '30'
+      })
+   }
+
    onMount(() => {
       gsap.registerPlugin(ScrollTrigger);
-      const spline = new Application(canvas);
-      spline.load('https://prod.spline.design/JxXjSXhd5fsb7r4K/scene.splinecode');
+      // const spline = new Application(canvas);
+      // spline.load('https://prod.spline.design/JxXjSXhd5fsb7r4K/scene.splinecode');
 
       const horizontalScroll = document.querySelector('.horizontal-scroll-content')!;
 
@@ -52,11 +88,146 @@
 
       height.set(338);
 
-      
+      //gsap scroll animation
+      gsap.from('.heading-h1', {
+         scrollTrigger: '.heading',
+         y: 40,
+         opacity: 0,
+         ease: 'expo.out',
+         duration: 1.2
+      });
+
+      // heading title
+      const headingAparts: HTMLElement[] = gsap.utils.toArray(".about-heading");
+      headingAparts.forEach((div, i) => {
+         const headingApartsParagraph = gsap.utils.toArray("p", div);
+         gsap.from(headingApartsParagraph, {
+            scrollTrigger: '.about-heading-second',
+            y: 40,
+            opacity: 0,
+            ease: 'expo.out',
+            duration: 0.7,
+            stagger: 0.05,
+            delay: 0.3
+         });
+      })
+
+      // photo
+      gsap.from('.heading-photo', {
+         scrollTrigger: '.about-heading-second',
+         y: -20,
+         opacity: 0,
+         ease: 'expo.out',
+         duration: 1.2
+      });
+
+      // project grid
+      const projectItemsContainer: HTMLElement[] = gsap.utils.toArray(".projects-items-grid");
+      projectItemsContainer.forEach((div, i) => {
+         const projectItems = gsap.utils.toArray("article", div);
+         gsap.from(projectItems, {
+            scrollTrigger: '#project-3',
+            y: 60,
+            opacity: 0,
+            ease: 'expo.out',
+            duration: 1.2,
+            stagger: 0.1,
+            delay: 0.6
+         });
+      })
+
+      // project list
+      const projectListContainer: HTMLElement[] = gsap.utils.toArray(".projects-items-list");
+      projectListContainer.forEach((div, i) => {
+         const projectItems = gsap.utils.toArray(".project-list-item", div);
+
+         gsap.to(projectItems, {
+            scrollTrigger: '.projects-items-list',
+            y: 0,
+            opacity: 100,
+            ease: 'expo.inout',
+            duration: 0.7,
+            stagger: 0.1,
+            delay: 0.6
+         });
+      })
+
+      // skills item
+      gsap.from('.heading-skill', {
+         scrollTrigger: '.skills-squares',
+         y: -20,
+         opacity: 0,
+         ease: 'expo.out',
+         duration: 1.2,
+         delay: 0.8,
+      });
+      gsap.from('.heading-skill-p', {
+         scrollTrigger: '.skills-squares',
+         y: -20,
+         opacity: 0,
+         ease: 'expo.out',
+         duration: 1.2,
+         delay: 0.95
+      });
+      gsap.from('.heading-skill-p-secondary', {
+         scrollTrigger: '.skills-squares',
+         y: -20,
+         opacity: 0,
+         ease: 'expo.out',
+         duration: 1.2,
+         delay: 0.95
+      });
+      gsap.from('.heading-skill-btn', {
+         scrollTrigger: '.skills-squares',
+         y: -20,
+         opacity: 0,
+         ease: 'expo.out',
+         duration: 1.2,
+         delay: 1.05
+      });
+
+      // footer
+      gsap.from('.footer-heading', {
+         scrollTrigger: '.footer-bottom',
+         y: 20,
+         opacity: 0,
+         ease: 'expo.out',
+         duration: 1.2,
+         delay: 0.2,
+      });
+      gsap.from('.footer-mail', {
+         scrollTrigger: '.footer-bottom',
+         y: 20,
+         opacity: 0,
+         ease: 'expo.out',
+         duration: 1.2,
+         delay: 0.3,
+      });
+      gsap.from('.footer-buttons', {
+         scrollTrigger: '.footer-bottom',
+         y: 20,
+         opacity: 0,
+         ease: 'expo.out',
+         duration: 1.2,
+         delay: 0.4,
+      });
+
+      // socials items
+      const socialsContainer: HTMLElement[] = gsap.utils.toArray(".footer-socials");
+      socialsContainer.forEach((div, i) => {
+         const socialItems = gsap.utils.toArray("li", div);
+         gsap.from(socialItems, {
+            scrollTrigger: '.footer-bottom',
+            y: 20,
+            opacity: 0,
+            ease: 'expo.inout',
+            duration: 0.5,
+            stagger: 0.1,
+            delay: 0.7
+         });
+      })
+
    })
-
-   
-
 </script>
 
 <style>
@@ -95,31 +266,32 @@
    }
 </style>
 
-<section data-barba="container" data-barba-namespace="home" class="md:overflow-x-hidden">
-<canvas bind:this={canvas} class="object-cover"></canvas>
-<header class=" py-72 text-center flex justify-center pointer-events-none">
+<section class="md:overflow-x-hidden">
+<!-- <canvas bind:this={canvas} class="object-cover"></canvas> -->
+
+<header class="py-72 text-center flex justify-center pointer-events-none heading">
    <div class="container pointer-events-none text-center flex justify-center px-8">
-      <h1 class="font-semibold text-h4 md:text-h3 lg:text-h2 xl:text-h1 text-dark-200 pointer-events-none max-w-3xl">Nowoczesne podejście do <span class="font-secondary text-primary-500 italic">designu.</span></h1>
+      <h1 class="heading-h1 font-semibold text-h4 md:text-h3 lg:text-h2 xl:text-h1 text-dark-200 pointer-events-none max-w-3xl">Nowoczesne podejście do <span class="font-secondary text-primary-500 italic">designu.</span></h1>
    </div>
 </header>
 
 <div id="space" class="h-48"></div>
 
 <section id="about" class="flex justify-center w-100">
-   <div class="py-12 sm:py-14 md:py-20 lg:py-28 xl:py-36 sm:pl-10 md:pl-14 lg:pl-20 xl:pl-24 sm:pr-5 px-4 max-w-screen-xl relative">
+   <div class="py-12 sm:py-14 md:py-20 lg:py-28 xl:py-36 sm:pl-10 md:pl-14 lg:pl-20 xl:pl-24 sm:pr-5 px-4 max-w-screen-xl relative about-heading">
       <h2 class="text-h5 md:text-h4 lg:text-h3 xl:text-h2 text-dark-200 font-semibold">
-         Pasjonat projektowania cyfrowego, specjalizujący się w tworzeniu <span class="font-secondary text-primary-500 italic">stron</span> internetowych, projektowaniu nowoczesnych <span class="font-secondary text-primary-500 italic">identyfikacji</span> wizualnych marek, komponowaniu materiałów drukowanych i tworzeniu oszałamiającej grafiki 3D.
+         <p>Pasjonat projektowania cyfrowego,</p> <p>specjalizujący się w tworzeniu <span class="font-secondary text-primary-500 italic">stron</span></p> <p>internetowych, projektowaniu</p> <p>nowoczesnych <span class="font-secondary text-primary-500 italic">identyfikacji</span> wizualnych</p> <p>marek, komponowaniu materiałów</p> <p>drukowanych i tworzeniu oszałamiającej</p> <p>grafiki 3D.</p>
       </h2>
-      <h2 class="text-h5 md:text-h4 lg:text-h3 xl:text-h2 text-dark-200 font-semibold mt-8 md:mt-10 lg:mt-14 xl:mt-16">
-         Oferuję również wdrażanie stron internetowych za pomocą <span class="font-secondary text-secondary-400 italic">nowoczesnych</span> rozwiązań frontendowych.
+      <h2 class="text-h5 md:text-h4 lg:text-h3 xl:text-h2 text-dark-200 font-semibold mt-8 md:mt-10 lg:mt-14 xl:mt-16 about-heading-second">
+         <p>Oferuję również wdrażanie stron</p> <p>internetowych za pomocą <span class="font-secondary text-secondary-400 italic">nowoczesnych</span></p> <p>rozwiązań frontendowych.</p>
       </h2>
       <div class="absolute offsetPhoto px-4">
-         <img src={Photo} class="mr-3" alt="Photo of Hubert Kruk" />
+         <img src={Photo} class="mr-3 heading-photo" alt="Photo of Hubert Kruk" />
       </div>
    </div>
 </section>
 
-<section id="projects" class="grid grid-rows-2 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 place-content-center">
+<section id="projects" class="grid grid-rows-2 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 place-content-center projects-items-grid">
    <div class="w-fit grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-14 lg:gap-18 lg:gap-26 xl:gap-32">
 
       <article id="project-1" class="flex flex-col px-4 max-w-[490px] xl:mr-12">
@@ -143,7 +315,7 @@
    </div>
    <div class="w-fit grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-14 lg:gap-18 lg:gap-26 xl:gap-32 mt-6 sm:mt-12 lg:mt-16">
 
-      <article id="project-1" class="flex flex-col px-4 max-w-[490px] xl:ml-12">
+      <article id="project-3" class="flex flex-col px-4 max-w-[490px] xl:ml-12">
          <img src={ProjectNo1} alt="Project thumbnail" class="object-contain aspect-[5/4] rounded-xl" />
          <h5 class="text-h6 xl:text-h5 text-dark-200 font-medium mt-6 lg:mt-8">Projekty dla biur oraz pośredników nieruchomości</h5>
          <div class="flex flex-row gap-6 mt-4">
@@ -151,7 +323,7 @@
          </div>
       </article>
 
-      <article id="project-2" class="flex flex-col px-4 max-w-[490px] md:mt-16 xl:ml-14">
+      <article id="project-4" class="flex flex-col px-4 max-w-[490px] md:mt-16 xl:ml-14">
          <img src={ProjectNo1} alt="Project thumbnail" class="object-contain aspect-[5/4] rounded-xl" />
          <h5 class="text-h6 xl:text-h5 text-dark-200 font-medium mt-6 lg:mt-8">Posty na social media</h5>
          <div class="flex flex-row gap-6 mt-4">
@@ -171,7 +343,7 @@
             </svg>               
          </a>
       </div>
-      <div class="px-4 sm:px-8 col-span-12 lg:col-span-10 xl:col-span-9">
+      <div class="px-4 sm:px-8 col-span-12 lg:col-span-10 xl:col-span-9 projects-items-list">
 
          <!-- Project list item -->
          <ProjectItem name="Redesign strony Indyjskie Meble" pos={1} scope={["UI DESIGN"]} image={ProjectNo1}></ProjectItem>
@@ -190,10 +362,73 @@
    </div>
 </section>
 
-   <section id="offer" class="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-8">
+<section id="offer" class="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-8">
       <div class="max-w-screen-2xl mx-auto">
          <div class="border border-dark-900 w-full"></div>
          <h5 class="font-primary text-dark-200 font-semibold text-h5 mt-10">Moje mozliwości</h5>
+      </div>
+
+      <div class="flex md:hidden flex-col mt-10 lg:mt-20 flex-nowrap py-1 mb-12">
+         <div class="flex flex-col w-full gap-10 mt-8 md:mt-0">
+      
+            <div class="border-dark-800 pt-6 border-t-2">
+               <div class="flex flex-col gap-6">
+                  <h4 class="font-primary text-dark-200 font-semibold text-h5 md:text-h4 flex w-full justify-between heading-skill" on:click={() => changeTab(0)}>Digital Design
+                     <svg class="tab-title" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 13.4927L3.75378 13.4927C3.33978 13.4927 3.00378 13.8287 3.00378 14.2427C3.00378 14.6567 3.33978 14.9927 3.75378 14.9927L13 14.9927L13 24.2388C13 24.6528 13.336 24.9888 13.75 24.9888C14.164 24.9888 14.5 24.6528 14.5 24.2388L14.5 14.9927L23.7524 14.9927C24.1664 14.9927 24.5024 14.6567 24.5024 14.2427C24.5024 13.8287 24.1664 13.4927 23.7524 13.4927L14.5 13.4927L14.5031 4.24288C14.5031 3.82888 14.1671 3.49288 13.7531 3.49288C13.3391 3.49288 13.0031 3.82888 13.0031 4.24288L13 13.4927Z" fill="#D1D1D1"/>
+                     </svg>                     
+                  </h4>
+                  <div class="flex flex-col gap-6 tab-content">
+                     <div class="flex flex-col gap-4 lg:gap-6">
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Projektowanie cyfrowe ma znaczący wpływ na dzisiejszą erę internetu, pomagając firmom budować swoje marki, angażować klientów i oferować innowacyjne rozwiązania graficzne. Chętnie Ci pomogę w projektowaniu nowoczesnych grafik, które przyczynią się do promocji Twojej marki w przestrzeni online, a także w tworzeniu interfejsów użytkownika (UI) dla stron internetowych i aplikacji mobilnych.</p>
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium heading-skill-p-secondary">Mimo mojego młodego wieku, posiadam znaczne doświadczenie w tworzeniu czytelnych, nowoczesnych i przystępnych dla przyszłych klientów rozwiązań, które spełnią oczekiwania nawet najbardziej wymagających klientów.</p>
+                     </div>
+                     <div class="heading-skill-btn">
+                        <ButtonOutline size="small" on:click={() => modalStore.update(n => ({ currentPage: 2, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="border-dark-800 pt-6 border-t-2">
+               <div class="flex flex-col gap-6">
+                  <h4 class="font-primary text-dark-200 font-semibold text-h5 md:text-h4 flex w-full justify-between" on:click={() => changeTab(1)}>Brand + Print
+                     <svg class="tab-title" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 13.4927L3.75378 13.4927C3.33978 13.4927 3.00378 13.8287 3.00378 14.2427C3.00378 14.6567 3.33978 14.9927 3.75378 14.9927L13 14.9927L13 24.2388C13 24.6528 13.336 24.9888 13.75 24.9888C14.164 24.9888 14.5 24.6528 14.5 24.2388L14.5 14.9927L23.7524 14.9927C24.1664 14.9927 24.5024 14.6567 24.5024 14.2427C24.5024 13.8287 24.1664 13.4927 23.7524 13.4927L14.5 13.4927L14.5031 4.24288C14.5031 3.82888 14.1671 3.49288 13.7531 3.49288C13.3391 3.49288 13.0031 3.82888 13.0031 4.24288L13 13.4927Z" fill="#D1D1D1"/>
+                     </svg>                     
+                  </h4>
+                  <div class="flex flex-col gap-6 top-[-20px] opacity-0 h-0 tab-content">
+                     <div class="flex flex-col gap-4 lg:gap-6">
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Działam na styku sztuki graficznej i druku, dostarczając klientom profesjonalne rozwiązania od projektu logo po ulotki, broszury, opakowania i wiele innych materiałów promocyjnych. Jako product designer dążę do oferowania kompleksowych rozwiązań, które wspierają klientów w realizacji ich celów marketingowych i biznesowych poprzez wzmacnianie wizerunku i promocję.</p>
+
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Tworzę spójne i rozpoznawalne identyfikacje wizualne, które wyróżniają się na tle konkurencji oraz nadają markom unikalny charakter. To istotny element budowania marki, który sprawia, że firma zyskuje własną tożsamość i jest zapamiętywana przez klientów.</p>
+                     </div>
+                     <div>
+                        <ButtonOutline size="small" on:click={() => modalStore.update(n => ({ currentPage: 0, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="border-dark-800 pt-6 border-t-2">
+               <div class="flex flex-col gap-6">
+                  <h4 class="font-primary text-dark-200 font-semibold text-h5 md:text-h4 flex w-full justify-between" on:click={() => changeTab(2)}>Development
+                     <svg class="tab-title" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 13.4927L3.75378 13.4927C3.33978 13.4927 3.00378 13.8287 3.00378 14.2427C3.00378 14.6567 3.33978 14.9927 3.75378 14.9927L13 14.9927L13 24.2388C13 24.6528 13.336 24.9888 13.75 24.9888C14.164 24.9888 14.5 24.6528 14.5 24.2388L14.5 14.9927L23.7524 14.9927C24.1664 14.9927 24.5024 14.6567 24.5024 14.2427C24.5024 13.8287 24.1664 13.4927 23.7524 13.4927L14.5 13.4927L14.5031 4.24288C14.5031 3.82888 14.1671 3.49288 13.7531 3.49288C13.3391 3.49288 13.0031 3.82888 13.0031 4.24288L13 13.4927Z" fill="#D1D1D1"/>
+                     </svg>                     
+                  </h4>
+                  <div class="flex flex-col gap-6 top-[-20px] opacity-0 h-0 tab-content">
+                     <div class="flex flex-col gap-4 lg:gap-6">
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Poza moją główną profesją, która jest digital design, mam również pasję i umiejętności w dziedzinie programowania webowego. Programowanie to dla mnie nie tylko praca, ale również sposób wyrażania kreatywności i tworzenia czegoś wartościowego.</p>
+
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Dzięki nowoczesnym technologiom jestem w stanie tworzyć strony internetowe od zera, począwszy od projektu graficznego aż po pełne, działające rozwiązania online. Moje umiejętności pozwalają mi dostosowywać projekty do indywidualnych potrzeb klientów, tworząc responsywne i atrakcyjne witryny, które zapewniają użytkownikom wyjątkowe doświadczenia.</p>
+                     </div>
+                     <div>
+                        <ButtonOutline size="small" on:click={() => modalStore.update(n => ({ currentPage: 1, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
+                     </div>
+                  </div>
+               </div>
+            </div>
+      
+         </div>
       </div>
 
       <div class="hidden md:flex flex-col mt-10 lg:mt-20 flex-nowrap horizontal-scroll-container gap-8">
@@ -203,7 +438,7 @@
                <div class="grid grid-cols-6 md:grid-cols-12 lg:gap-20 w-full max-w-[1800px] lg:pl-24 lg:pr-20">
                   <div class="col-span-6 md:col-span-12 w-full sm:w-3/4 lg:w-full lg:col-span-5 w-[300px] md:w-2/3">
       
-                     <div class="grid grid-cols-3 grid-rows-2 w-full">
+                     <div class="grid grid-cols-3 grid-rows-2 w-full skills-squares">
                         <div class="outline outline-2 outline-dark-900 aspect-square outline-offset-[-1px] flex items-center justify-center p-4">
                            <svg width="123" height="123" viewBox="0 0 123 123" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path class="origin-[50%_50%] animate-rotateOne" d="M89.4592 61.8317C89.4592 78.5694 86.2741 93.6737 81.1683 104.556C76.0252 115.518 69.1185 121.854 61.8289 121.854C54.5393 121.854 47.6326 115.518 42.4895 104.556C37.3837 93.6737 34.1985 78.5694 34.1985 61.8317C34.1985 45.0939 37.3837 29.9896 42.4895 19.1071C47.6326 8.14521 54.5393 1.80933 61.8289 1.80933C69.1185 1.80933 76.0252 8.14521 81.1683 19.1071C86.2741 29.9896 89.4592 45.0939 89.4592 61.8317Z" stroke="#3D3D3D" stroke-width="2"/>
@@ -418,12 +653,12 @@
                      
                   </div>
                   <div class="flex flex-col col-span-6 md:col-span-12 lg:col-span-7 gap-4 md:gap-6 lg:gap-8 mt-4 md:mt-12 lg:mr-10">
-                     <h4 class="font-primary text-dark-200 font-semibold text-h5 md:text-h4">Digital Design</h4>
+                     <h4 class="font-primary text-dark-200 font-semibold text-h5 md:text-h4 heading-skill">Digital Design</h4>
                      <div class="flex flex-col gap-4 lg:gap-6">
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Projektowanie cyfrowe ma znaczący wpływ na dzisiejszą erę internetu, pomagając firmom budować swoje marki, angażować klientów i oferować innowacyjne rozwiązania graficzne. Chętnie Ci pomogę w projektowaniu nowoczesnych grafik, które przyczynią się do promocji Twojej marki w przestrzeni online, a także w tworzeniu interfejsów użytkownika (UI) dla stron internetowych i aplikacji mobilnych.</p>
-                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium">Mimo mojego młodego wieku, posiadam znaczne doświadczenie w tworzeniu czytelnych, nowoczesnych i przystępnych dla przyszłych klientów rozwiązań, które spełnią oczekiwania nawet najbardziej wymagających klientów.</p>
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium heading-skill-p">Projektowanie cyfrowe ma znaczący wpływ na dzisiejszą erę internetu, pomagając firmom budować swoje marki, angażować klientów i oferować innowacyjne rozwiązania graficzne. Chętnie Ci pomogę w projektowaniu nowoczesnych grafik, które przyczynią się do promocji Twojej marki w przestrzeni online, a także w tworzeniu interfejsów użytkownika (UI) dla stron internetowych i aplikacji mobilnych.</p>
+                        <p class="text-p2 md:text-p1 text-dark-400 font-primary font-medium heading-skill-p-secondary">Mimo mojego młodego wieku, posiadam znaczne doświadczenie w tworzeniu czytelnych, nowoczesnych i przystępnych dla przyszłych klientów rozwiązań, które spełnią oczekiwania nawet najbardziej wymagających klientów.</p>
                      </div>
-                     <div>
+                     <div class="heading-skill-btn">
                         <ButtonOutline size="medium" on:click={() => modalStore.update(n => ({ currentPage: 2, isOpen: true }))}>Szczegółowa oferta</ButtonOutline>
                      </div>
                   </div>
@@ -901,7 +1136,62 @@
    </section>
 </section>
 
-<Footer />
+<footer id="footer" class="max-w-screen-2xl py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 place-content-center px-4 sm:px-8 mx-auto">
+   <h2 class="font-primary font-semibold text-h5 sm:text-h4 md:text-h3 lg:text-h2 text-dark-200 footer-heading">Chętny na współpracę?<br />Napisz do mnie!</h2>
+   <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-12 mt-12 gap-8 md:gap-2">
+      <div class="col-span-4 sm:col-span-6 md:col-span-8 lg:col-span-10">
+         <a href="#" class="text-h6 md:text-h5 lg:text-h4 text-dark-200 pb-3 border-b-2 border-dark-200 font-semibold inline-flex items-center gap-2 md:gap-4 footer-mail">
+            <span class="md:mt-1">
+               <svg width="32" height="32" viewBox="0 0 32 32" class="w-4 md:w-6 lg:w-8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.25 3C14.5596 3 14 3.55964 14 4.25C14 4.94036 14.5596 5.5 15.25 5.5L24.7322 5.5L3.36612 26.866C2.87796 27.3542 2.87796 28.1457 3.36612 28.6338C3.85427 29.122 4.64573 29.122 5.13388 28.6338L26.5 7.26769L26.5 16.75C26.5 17.4404 27.0596 18 27.75 18C28.4404 18 29 17.4404 29 16.75L29 4.25C29 3.55964 28.4404 3 27.75 3L15.25 3Z" fill="#D1D1D1"/>
+               </svg>
+            </span>
+            kontakt@hubertkruk.pl</a>
+            <div>
+               <div class="flex flex-col md:flex-row gap-4 mt-10 md:mt-14 footer-buttons">
+                  <ButtonOutline size="small" link="/contact#contact">Formularz kontaktowy</ButtonOutline>
+                  <ButtonPrimary size="small" on:click={() => modalStore.update(n => ({ currentPage: 2, isOpen: true }))}>Oferta</ButtonPrimary>
+               </div>
+            </div>
+      </div>
+      <div class="col-span-4 sm:col-span-6 md:col-span-4 lg:col-span-2">
+         <p class="text-p2 text-dark-400 font-semibold">Zaobserwuj mnie</p>
+         <ul class="inline-flex gap-6 flex-col mt-4 footer-socials">
+            <li class="group">
+               <a href="https://www.behance.net/hubertkruk/" target="_blank" class="text-dark-200 rounded font-primary text-h6 font-semibold flex flex-row gap-0 group-hover:text-dark-50 ease-primary group overflow-hidden h-7">
+                  <div class="flex flex-col group-hover:translate-y-[-25px] transition duration-500 ease"><p>Behance</p><p>Behance</p></div>
+               </a>
+            </li>
+            <li class="group">
+               <a href="https://dribbble.com/hubertkruk" target="_blank" class="text-dark-200 rounded font-primary text-h6 font-semibold flex flex-row gap-0 group-hover:text-dark-50 ease-primary group overflow-hidden h-7">
+                  <div class="flex flex-col group-hover:translate-y-[-25px] transition duration-500 ease"><p>Dribbble</p><p>Dribbble</p></div>
+               </a>
+            </li>
+            <li class="group">
+               <a href="https://www.instagram.com/studiohubertkruk" target="_blank" class="text-dark-200 rounded font-primary text-h6 font-semibold flex flex-row gap-0 group-hover:text-dark-50 ease-primary group overflow-hidden h-7">
+                  <div class="flex flex-col group-hover:translate-y-[-25px] transition duration-500 ease"><p>Instagram</p><p>Instagram</p></div>
+               </a>
+            </li>
+            <li class="group">
+               <a href="https://github.com/delalegion" target="_blank" class="text-dark-200 rounded font-primary text-h6 font-semibold flex flex-row gap-0 group-hover:text-dark-50 ease-primary group overflow-hidden h-7">
+                  <div class="flex flex-col group-hover:translate-y-[-25px] transition duration-500 ease"><p>Github</p><p>Github</p></div>
+               </a>
+            </li>
+            <li class="group">
+               <a href="https://www.linkedin.com/in/hubert-kruk/" target="_blank" class="text-dark-200 rounded font-primary text-h6 font-semibold flex flex-row gap-0 group-hover:text-dark-50 ease-primary group overflow-hidden h-7">
+                  <div class="flex flex-col group-hover:translate-y-[-25px] transition duration-500 ease"><p>Linkedin</p><p>Linkedin</p></div>
+               </a>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <div class="flex items-center flex-row gap-10 pt-16 md:pt-10 footer-bottom">
+      <svg width="73" height="46" viewBox="0 0 73 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M66.2138 31.2739L62.9465 35.8074C62.1732 36.8847 60.9203 37.5263 59.6014 37.5263C58.2825 37.5263 57.0296 36.8847 56.2562 35.8074L44.9798 20.1371L50.1234 8.47368H62.0233V0H51.2325V0.0121053L43.3492 17.8795L39.4105 26.8192L33.5775 40.0503V0H25.1846V32.9626L8.39287 9.64184V0H0V46H8.39287V13.7576L25.1786 37.0845V46H33.5715V45.9879L41.0351 29.0708L49.464 40.7826C51.814 44.045 55.6028 45.9939 59.6014 45.9939C63.6 45.9939 67.3888 44.045 69.7388 40.7826L73 36.2492L66.2138 31.2679V31.2739Z" fill="#B535FF"/>
+      </svg>         
+      <p class="text-dark-400 text-caption font-semibold">Hubert Kruk 2024 @ Wszelkie prawa zastrzeżone | <a href="/privacy-policy" class="text-dark-400 hover:text-dark-200 transition duration-300 ease">Polityka prywatności</a></p>
+   </div>
+</footer>
 
 <!-- Modal with skills components -->
 <ModalWithSkills />
